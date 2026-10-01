@@ -1,6 +1,14 @@
-﻿
-//Part 1: The Name
-using System.Security;
+﻿/*
+* Name: Bryce Clement
+* Course: CSCI 1250, Section 002
+* Assignment: Lab 03, The Badge Office
+* Date: September 30, 2026
+* Description: Builds a student badge from a name, two random assignments,
+* and the walking distance to a first class.
+*/
+
+// ===Part 1: The Name===
+// Finds the full name and then finds the name on the badge, username, initials, and letters in last name
 
 System.Console.Write("What is your full Name?");
 
@@ -27,7 +35,9 @@ System.Console.WriteLine("Username: " + firstLetter + lastLetter);
 System.Console.WriteLine("Initials: " + firstInitial +"." + lastInitial + ".");
 System.Console.WriteLine("Letters in last Name: " + lastNameLetters);
 System.Console.WriteLine();
-//Part 2: The Numbers
+
+// ===Part 2: The Numbers===
+//creates the student ID and locker number
 
 Random rng = new Random();
 
@@ -38,7 +48,8 @@ System.Console.WriteLine("Student ID: " + studentId);
 System.Console.WriteLine("Locker: " + lockerNumber);
 System.Console.WriteLine();
 
-//Part 3: The Walk
+// ===Part 3: The Walk===
+//finds the distance to the students first class and how long the walk takes
 
 System.Console.WriteLine("What is the dorm's x?");
 int dormX = Convert.ToInt32(Console.ReadLine());
@@ -59,4 +70,20 @@ double seconds = (int)tripSeconds % 60;
 
 System.Console.WriteLine("Distance: " + distance.ToString("F1") + " feet");
 System.Console.WriteLine("Walk time: " + minutes + " minutes and " + seconds + " seconds" );
+System.Console.WriteLine();
 
+// ===Part 4: The Badge===
+//creates the students badge with info from all previous parts
+
+int iD = studentId % 9;
+
+Console.WriteLine("==================================");
+Console.WriteLine("ETSU STUDENT BADGE".PadLeft(26));
+Console.WriteLine("==================================");
+
+System.Console.WriteLine("NAME".PadRight(10) + fullName.ToUpper());
+System.Console.WriteLine("USERNAME".PadRight(10) + firstLetter + lastLetter);
+System.Console.WriteLine("ID".PadRight(10) + studentId + "-" + iD);
+System.Console.WriteLine("LOCKER".PadRight(10) + lockerNumber);
+System.Console.WriteLine("WALK".PadRight(10) + minutes + " min " + seconds + " sec");
+Console.WriteLine("==================================");
